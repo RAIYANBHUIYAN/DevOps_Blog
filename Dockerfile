@@ -3,6 +3,9 @@ FROM node:20-alpine as build
 
 WORKDIR /app
 
+# Install build dependencies
+RUN apk add --no-cache python3 make g++
+
 # Copy package files
 COPY package*.json ./
 
@@ -11,6 +14,12 @@ RUN npm ci
 
 # Copy source code
 COPY . .
+
+# Set proper permissions
+RUN chown -R node:node /app
+
+# Switch to non-root user
+USER node
 
 # Build the application
 RUN npm run build
