@@ -3,8 +3,9 @@ FROM node:20-alpine as build
 
 WORKDIR /app
 
-# Install build dependencies
-RUN apk add --no-cache python3 make g++
+# Install build dependencies and Vite globally
+RUN apk add --no-cache python3 make g++ && \
+    npm install -g vite
 
 # Copy package files
 COPY package*.json ./
@@ -15,15 +16,14 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# Set proper permissions for node_modules
-RUN chown -R node:node /app && \
-    chmod -R 755 /app/node_modules/.bin
+# Set proper permissions
+RUN chown -R node:node /app
 
 # Switch to non-root user
 USER node
 
-# Build the application
-RUN npm run build
+# Build the application using global vite
+RUN /usr/local/bin/vite build
 
 # Production stage
 FROM nginx:alpine
