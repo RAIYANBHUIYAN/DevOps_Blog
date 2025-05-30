@@ -15,8 +15,9 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# Set proper permissions
-RUN chown -R node:node /app
+# Set proper permissions for node_modules
+RUN chown -R node:node /app && \
+    chmod -R 755 /app/node_modules/.bin
 
 # Switch to non-root user
 USER node
