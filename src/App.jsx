@@ -10,6 +10,7 @@ import Resources from './pages/Resources'
 import CategoryPage from './pages/CategoryPage'
 import DevOpsChatbot from './components/DevOpsChatbot'
 import Jobs from './pages/Jobs'
+import Installation from './pages/Installation'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/jobs" element={<Jobs />} />
+          <Route path="/installation" element={<Installation />} />
         </Routes>
       </main>
       <Footer />

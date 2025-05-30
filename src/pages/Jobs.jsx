@@ -238,16 +238,10 @@ function Jobs() {
           <div className="bg-gray-50 rounded-lg p-4">
             <h3 className="font-semibold text-gray-900 mb-3">Salary Ranges (BDT)</h3>
             {Object.entries(salaryData[selectedRole]).map(([level, range]) => (
-              <div key={level} className="mb-2">
+              <div key={level} className="mb-2 pb-2 border-b border-gray-300 last:border-b-0">
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">{level}</span>
                   <span className="text-sm font-medium text-primary">{range}</span>
-                </div>
-                <div className="h-1 bg-gray-200 rounded-full mt-1">
-                  <div 
-                    className="h-1 bg-primary rounded-full"
-                    style={{ width: `${(parseInt(range.split('-')[0].replace(/[^0-9]/g, '')) / 400) * 100}%` }}
-                  />
                 </div>
               </div>
             ))}

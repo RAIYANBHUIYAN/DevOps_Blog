@@ -153,7 +153,14 @@ function Home() {
 
       <div className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Featured DevOps Projects</h2>
-        <div ref={scrollContainerRef} className="flex overflow-x-auto space-x-6 pb-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+        <div 
+          ref={scrollContainerRef} 
+          className="flex overflow-x-auto space-x-6 pb-4 scrollbar-none"
+          style={{
+            msOverflowStyle: 'none',  /* IE and Edge */
+            scrollbarWidth: 'none'    /* Firefox */
+          }}
+        >
           {featuredProjects.map(project => (
             <div key={project.id} className="flex-shrink-0 w-48 p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow flex items-center">
               {project.type === 'image' ? (
