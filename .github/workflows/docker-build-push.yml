@@ -27,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install correct ESLint version
+        run: npm install eslint@8.56.0 --save-dev
+
       - name: Run lint
         run: npm run lint
 
