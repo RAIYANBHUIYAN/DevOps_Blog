@@ -1,11 +1,10 @@
-import js from "@eslint/js";
-import globals from "globals";
-import pluginReact from "eslint-plugin-react";
-import { defineConfig } from "eslint/config";
-
-
-export default defineConfig([
-  { files: ["**/*.{js,mjs,cjs,jsx}"], plugins: { js }, extends: ["js/recommended"] },
-  { files: ["**/*.{js,mjs,cjs,jsx}"], languageOptions: { globals: globals.browser } },
-  pluginReact.configs.flat.recommended,
-]);
+module.exports = [
+  {
+    files: ["**/*.{js,mjs,cjs,jsx}"],
+    rules: {
+      // Add your rules here, for example:
+      "semi": ["error", "always"],
+      "quotes": ["error", "single"]
+    }
+  }
+]; 
