@@ -24,11 +24,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: Install dependencies (using package-lock.json)
         run: npm ci
-
-      - name: Install correct ESLint version
-        run: npm install eslint@8.56.0 --save-dev
 
       - name: Run lint
         run: npm run lint
