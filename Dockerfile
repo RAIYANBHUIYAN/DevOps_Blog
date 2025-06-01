@@ -1,17 +1,18 @@
 # Build stage
-FROM node:20-alpine as build
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
-# Install build dependencies and Vite globally
-RUN apk add --no-cache python3 make g++ && \
-    npm install -g vite
+# Install build dependencies
+RUN apk add --no-cache python3 make g++
 
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci
+# Clean install dependencies with proper platform support
+RUN npm cache clean --force && \
+    rm -rf node_modules package-lock.json && \
+    npm install
 
 # Copy source code
 COPY . .
@@ -22,8 +23,8 @@ RUN chown -R node:node /app
 # Switch to non-root user
 USER node
 
-# Build the application using global vite
-RUN /usr/local/bin/vite build
+# Build the application using local vite
+RUN npm run build
 
 # Production stage
 FROM nginx:alpine
