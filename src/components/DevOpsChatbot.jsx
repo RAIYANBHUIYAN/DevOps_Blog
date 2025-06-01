@@ -9,43 +9,43 @@ import {
 // Sample responses for different DevOps topics
 const responses = {
   kubernetes: [
-    "Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.",
-    "To get started with Kubernetes, you'll need to understand pods, deployments, services, and namespaces. Would you like to know more about any of these concepts?",
-    "Some popular Kubernetes tools include kubectl (CLI), Helm (package manager), and Lens (GUI)."
+    'Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.',
+    'To get started with Kubernetes, you\'ll need to understand pods, deployments, services, and namespaces. Would you like to know more about any of these concepts?',
+    'Some popular Kubernetes tools include kubectl (CLI), Helm (package manager), and Lens (GUI).'
   ],
   docker: [
-    "Docker is a platform for developing, shipping, and running applications in containers. It helps ensure consistency across different environments.",
-    "Docker Compose is great for managing multi-container applications. It uses a YAML file to configure your application's services.",
-    "Best practices for Docker include using official images, implementing proper security measures, and optimizing your Dockerfile layers."
+    'Docker is a platform for developing, shipping, and running applications in containers. It helps ensure consistency across different environments.',
+    'Docker Compose is great for managing multi-container applications. It uses a YAML file to configure your application\'s services.',
+    'Best practices for Docker include using official images, implementing proper security measures, and optimizing your Dockerfile layers.'
   ],
   ci_cd: [
-    "CI/CD stands for Continuous Integration and Continuous Deployment. It's a method to frequently deliver apps to customers by introducing automation.",
-    "Popular CI/CD tools include Jenkins, GitHub Actions, GitLab CI, and CircleCI.",
-    "A typical CI/CD pipeline includes stages for building, testing, and deploying your application."
+    'CI/CD stands for Continuous Integration and Continuous Deployment. It\'s a method to frequently deliver apps to customers by introducing automation.',
+    'Popular CI/CD tools include Jenkins, GitHub Actions, GitLab CI, and CircleCI.',
+    'A typical CI/CD pipeline includes stages for building, testing, and deploying your application.'
   ],
   monitoring: [
-    "Monitoring in DevOps involves tracking the performance and health of your applications and infrastructure.",
-    "Popular monitoring tools include Prometheus, Grafana, and Datadog.",
-    "Key metrics to monitor include CPU usage, memory consumption, response times, and error rates."
+    'Monitoring in DevOps involves tracking the performance and health of your applications and infrastructure.',
+    'Popular monitoring tools include Prometheus, Grafana, and Datadog.',
+    'Key metrics to monitor include CPU usage, memory consumption, response times, and error rates.'
   ],
   default: [
-    "I'm a DevOps assistant! I can help you with topics like Kubernetes, Docker, CI/CD, monitoring, and more. What would you like to learn about?",
-    "DevOps combines software development (Dev) and IT operations (Ops) to shorten the development lifecycle and provide continuous delivery.",
-    "Would you like to know more about any specific DevOps tool or practice?"
+    'I\'m a DevOps assistant! I can help you with topics like Kubernetes, Docker, CI/CD, monitoring, and more. What would you like to learn about?',
+    'DevOps combines software development (Dev) and IT operations (Ops) to shorten the development lifecycle and provide continuous delivery.',
+    'Would you like to know more about any specific DevOps tool or practice?'
   ]
 }
 
 function DevOpsChatbot() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: "Hello! I'm your DevOps assistant. How can I help you today?" }
+    { role: 'assistant', content: 'Hello! I\'m your DevOps assistant. How can I help you today?' }
   ])
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
   const messagesEndRef = useRef(null)
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
   useEffect(() => {

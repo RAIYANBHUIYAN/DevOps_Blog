@@ -96,7 +96,7 @@ const blogPosts = [
     readTime: '9 min read',
     tags: ['Security', 'Docker', 'Kubernetes'],
     author: 'John Smith'
-  },
+  }
 ]
 
 // Sample data for the scrollable section
@@ -110,37 +110,37 @@ const featuredProjects = [
   { id: 7, name: 'Grafana', icon: grafanaIcon, type: 'image' },
   { id: 8, name: 'Harbor', icon: harborIcon, type: 'image' },
   { id: 9, name: 'Falco', icon: ShieldCheckIcon },
-  { id: 10, name: 'Flux CD', icon: ArrowPathIcon },
-];
+  { id: 10, name: 'Flux CD', icon: ArrowPathIcon }
+]
 
 function Home() {
   const [selectedRole, setSelectedRole] = useState('DevOps Engineer')
   const [searchTerm, setSearchTerm] = useState('')
   const [locationFilter, setLocationFilter] = useState('')
 
-  const scrollContainerRef = useRef(null);
+  const scrollContainerRef = useRef(null)
 
   useEffect(() => {
-    const scrollSpeed = 50; // milliseconds per step
-    const step = 1; // pixels per step
-    let animationFrameId;
+    const scrollSpeed = 50 // milliseconds per step
+    const step = 1 // pixels per step
+    let animationFrameId
 
     const scroll = () => {
       if (scrollContainerRef.current) {
-        scrollContainerRef.current.scrollLeft += step;
+        scrollContainerRef.current.scrollLeft += step
 
         // Reset scroll position if it reaches the end
         if (scrollContainerRef.current.scrollLeft >= scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth) {
-          scrollContainerRef.current.scrollLeft = 0;
+          scrollContainerRef.current.scrollLeft = 0
         }
       }
-      animationFrameId = requestAnimationFrame(scroll);
-    };
+      animationFrameId = requestAnimationFrame(scroll)
+    }
 
-    animationFrameId = requestAnimationFrame(scroll);
+    animationFrameId = requestAnimationFrame(scroll)
 
-    return () => cancelAnimationFrame(animationFrameId);
-  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
+    return () => cancelAnimationFrame(animationFrameId)
+  }, []) // Empty dependency array means this effect runs once on mount and cleans up on unmount
 
   return (
     <div className="container mx-auto py-12">
