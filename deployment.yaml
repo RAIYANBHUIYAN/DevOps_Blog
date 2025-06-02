@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopsblog-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devopsblog
+  template:
+    metadata:
+      labels:
+        app: devopsblog
+    spec:
+      containers:
+      - name: devopsblog
+        image: raiyan77/devopsblog:main
+        ports:
+        - containerPort: 5000
