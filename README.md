@@ -250,6 +250,9 @@ The CD pipeline deploys the application to a k0s cluster:
 ### Blog Posts
 ![Blog Posts](screen_shots/Blog_2.png)
 
+### Kubernetes Lens Dashboard
+![Kubernetes Lens Dashboard](screen_shots/Lens.png)
+
 ### Individual Post
 ![Blog Post Detail](screen_shots/Blog_3.png)
 
