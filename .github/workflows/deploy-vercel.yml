@@ -1,29 +1,32 @@
+# .github/workflows/deploy.yml
 name: Deploy to Vercel
 
 on:
   push:
     branches:
-      - main
+      - main  # or your deployment branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Install Node.js
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Remove node_modules and package-lock.json
-        run: rm -rf node_modules package-lock.json
-
       - name: Install dependencies
         run: npm install
 
-      - name: Build
+      - name: Build project
         run: npm run build
 
       - name: Deploy to Vercel
-        run: npx vercel --prod --token ${{ secrets.VERCLE_TOKEN }} --confirm --project ${{ secrets.VERCLE_PROJECT_ID }} 
+        run: |
+          npx vercel --prod --confirm \
+            --token ${{ secrets.VERCEL_TOKEN }} \
+            --project dev-ops-blog-d248
