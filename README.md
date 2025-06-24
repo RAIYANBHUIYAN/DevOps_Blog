@@ -1,5 +1,7 @@
 # DevOps Blog Project
 
+[Live Website](https://dev-ops-blog.vercel.app/)
+
 A modern React-based blog website demonstrating end-to-end DevOps practices, including CI/CD pipeline implementation, containerization, and Kubernetes deployment. Built with React, Vite, and Tailwind CSS.
 
 ## 🚀 Project Overview
