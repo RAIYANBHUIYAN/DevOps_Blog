@@ -29,7 +29,4 @@ jobs:
         run: npm run build
 
       - name: Deploy to Vercel
-        run: |
-          npx vercel --prod --confirm \
-            --token ${{ secrets.VERCEL_TOKEN }} \
-            --project dev-ops-blog-d248
+        run: npx vercel --prod --token ${{ secrets.VERCLE_TOKEN }} --confirm
